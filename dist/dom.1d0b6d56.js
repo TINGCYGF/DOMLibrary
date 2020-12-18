@@ -117,10 +117,55 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"main.js":[function(require,module,exports) {
-var div = dom.create("div");
-dom.attr(ting, 'title', 'hi,I an Ting');
-console.log(dom.attr(ting, 'title'));
+})({"dom.js":[function(require,module,exports) {
+window.dom = {
+  create: function create(string) {
+    //用trmolate元素作为容器
+    var container = document.createElement("template"); //trim去除空格
+
+    container.innerHTML = string.trim(); //content.firstChild才能获取第一个子元素
+
+    return container.content.firstChild;
+  },
+  //创建插入下一个节点API
+  after: function after(node, node2) {
+    //插入node下一个节点的前面
+    node.parenNode.insertBefore(node2, node.nextSibling);
+  },
+  before: function before(node, node2) {
+    node.parentNode.inserBefor(node2, node);
+  },
+  append: function append(parent, node) {
+    parent.appendChild(node);
+  },
+  //增加一个父元素
+  wrap: function wrap(node, parent) {
+    dom.before(node, parent);
+    dom.append(parent, node);
+  },
+  remove: function remove(node) {
+    noed.parentNode.removeChild(node);
+    return node;
+  },
+  //删除所有
+  empty: function empty(node) {
+    var childNodes = node.childNodes;
+    var array = [];
+    var x = node.firstChild;
+
+    while (x) {
+      array.push(dom.remove(node.firstChild));
+      x = node.firstChild;
+    }
+  },
+  attr: function attr(node, name, value) {
+    if (arguments === 3) {
+      node.setAttribute(name, value);
+    } else if (arguments === 2) {
+      return node.getAttribute(name);
+    }
+  }
+};
 },{}],"C:/Users/Ting/AppData/Local/Yarn/Data/global/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -324,5 +369,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["C:/Users/Ting/AppData/Local/Yarn/Data/global/node_modules/parcel/src/builtins/hmr-runtime.js","main.js"], null)
-//# sourceMappingURL=/main.1f19ae8e.js.map
+},{}]},{},["C:/Users/Ting/AppData/Local/Yarn/Data/global/node_modules/parcel/src/builtins/hmr-runtime.js","dom.js"], null)
+//# sourceMappingURL=/dom.1d0b6d56.js.map
