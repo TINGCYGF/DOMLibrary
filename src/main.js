@@ -31,5 +31,5 @@ console.log(box3);
 
 dom.each(box3, (n)=> dom.style(n, 'color', 'red'));
 
-console.log(dom.children('box3'));
-console.log(dom.index('box3'));
+console.log(dom.children(box3)[0]);
+console.log(dom.index(box3));

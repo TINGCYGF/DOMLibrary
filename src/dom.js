@@ -104,7 +104,7 @@ window.dom = {
     node.removeEventListener(eventName, fn)
   },
   //获取元素数组,第二个参数指定范围
-  find(selector , scope){
+  find(selector, scope){
     return (scope || document).querySelectorAll(selector)
   },
   //查兄弟节点
@@ -115,7 +115,7 @@ window.dom = {
     return node.parentNode
   },
   children(node){
-    return node.children;
+    return node.children
   },
   //查下一个元素节点
   next(node){
