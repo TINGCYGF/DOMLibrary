@@ -1,9 +1,10 @@
 
 试着封装了两个库
-一个可以操作DOM对象的DOM库
-一个可以操作jQuery对象的库，功能没有那么齐全，只要一些基础功能
 
-##DOM库
+* 一个可以操作DOM对象的DOM库
+* 一个可以操作jQuery对象的库，功能没有那么齐全，只要一些基础功能
+
+## DOM库
 ```javascript
 //创建元素
 create(string)
@@ -63,7 +64,7 @@ next(node)
 index(node)
 ```
 
-##jQuery库
+## jQuery库
 支持链式操作
 aip和jQuery一样
 ```javascript
